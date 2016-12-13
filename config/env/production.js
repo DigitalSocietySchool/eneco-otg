@@ -34,5 +34,6 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
+  apiKey: process.env.API_KEY || ''
 
 };

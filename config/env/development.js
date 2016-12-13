@@ -21,4 +21,6 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  apiKey: process.env.API_KEY || ''
+
 };
