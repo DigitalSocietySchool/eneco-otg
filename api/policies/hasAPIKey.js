@@ -8,8 +8,6 @@
  *
  */
 module.exports = function(req, res, next) {
-  console.log('header key is ' + req.headers.apikey)
-  console.log('CFg key is ' + sails.config.apiKey)
   if(req.headers.hasOwnProperty('apikey')) {
     if(sails.config.apiKey === req.headers.apikey) {
       return next()
