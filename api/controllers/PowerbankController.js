@@ -8,8 +8,17 @@
 
 module.exports = {
   index(req, res) {
+    let query   = {},
+        fields  = ['store', 'identifier'];
+
+    fields.forEach(field => {
+      if(req.param(field)) {
+        query[field] = req.param(field)
+      }
+    })
+
     Powerbank
-      .find()
+      .find(query)
       .populate('store')
       .populate('loans')
       .then(powerbanks => {

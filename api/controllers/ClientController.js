@@ -8,8 +8,17 @@
 
 module.exports = {
   index(req, res) {
+    let query   = {},
+        fields  = ['firstName', 'lastName', 'identifier', 'emailAddress', 'houseNumber', 'street', 'city', 'postcode', 'province'];
+
+    fields.forEach(field => {
+      if(req.param(field)) {
+        query[field] = req.param(field)
+      }
+    })
+
     Client
-      .find()
+      .find(query)
       .populate('cards')
       .then(clients => {
         res.success(clients)

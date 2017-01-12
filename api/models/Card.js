@@ -27,6 +27,12 @@ module.exports = {
       collection: 'loan',
       via: 'card'
     }
+  },
+  beforeValidate: (values, cb) => {
+    if(values.hasOwnProperty('identifier') && values.identifier.indexOf('/') > -1) {
+      return cb(new sails.RequestError('No slashes are allowed in card identifiers'))
+    }
+    return cb()
   }
 };
 

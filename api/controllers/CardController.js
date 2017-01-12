@@ -8,11 +8,37 @@
 
 module.exports = {
   index(req, res) {
-    Card
-      .find()
-      .populate('client')
-      .then(cards => {
-        res.success(cards)
+    let searchQuery   = {},
+        fields  = ['identifier', 'store', 'client'];
+
+    fields.forEach(field => {
+      if(req.param(field)) {
+        searchQuery[field] = req.param(field)
+      }
+    })
+
+
+    let query = Card.find(searchQuery).populate('client').populate('loans')
+
+    if(req.param('clientIdentifier')) {
+      query = Client.findOne({
+        identifier: req.param('clientIdentifier')
+      }).populate('cards')
+    }
+
+    query
+      .then(response => {
+        if(!Array.isArray(response) && response.hasOwnProperty('cards')) {
+          let client = Object.assign({}, response)
+          const cards = response.cards
+          delete client.cards
+          return res.success(cards.map(card => {
+            return Object.assign({}, card, {
+              client: client
+            })
+          }))
+        }
+        return res.success(response)
       })
       .catch(err => {
         res.error(err)

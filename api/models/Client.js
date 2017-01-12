@@ -16,7 +16,25 @@ module.exports = {
       type: 'string',
       required: true
     },
-    address: {
+    email: {
+      type: 'email'
+    },
+    street: {
+      type: 'string'
+    },
+    houseNumber: {
+      type: 'string'
+    },
+    postcode: {
+      type: 'string'
+    },
+    province: {
+      type: 'string'
+    },
+    city: {
+      type: 'string'
+    },
+    identifier: {
       type: 'string'
     },
     cards: {

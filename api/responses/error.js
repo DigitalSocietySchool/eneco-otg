@@ -1,27 +1,9 @@
 'use strict'
-/**
- * 200 (OK) Response
- *
- * Usage:
- * return res.ok();
- * return res.ok(data);
- * return res.ok(data, 'auth/login');
- *
- * @param  {Object} data
- * @param  {String|Object} options
- *          - pass string to render specified view
- */
-
 module.exports = function error (data) {
-
-  // Get access to `req`, `res`, & `sails`
   const req = this.req
-  var res = this.res
-  let toReturn
-
-
+  let res = this.res
+  let toReturn;
   if(!_.isObject(data) && !_.isArray(data)) {
-    // Set status code
     res.status(400)
     toReturn = {
       code: "E_ERROR",

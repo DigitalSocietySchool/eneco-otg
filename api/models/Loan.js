@@ -27,6 +27,28 @@ module.exports = {
       enum: ['inactive', 'loaned', 'returned'],
       defaultsTo: 'inactive'
     }
+  },
+  beforeValidate: (values, cb) => {
+    if(values.hasOwnProperty('cardIdentifier')) {
+      Card
+        .findOne({
+          identifier: values.cardIdentifier
+        })
+        .then(card => {
+          if(!card) {
+            throw new sails.NotFoundError('Card doesn\'t exist')
+          }
+          delete values.cardIdentifier
+          values.card = card.id
+          cb()
+        })
+        .catch(err => {
+          console.error('[Loan.beforeValidate] Error: ', err)
+          cb(err)
+        })
+    } else {
+      cb()
+    }
   }
 };
 

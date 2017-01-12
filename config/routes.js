@@ -57,9 +57,9 @@ module.exports.routes = {
   'DELETE /api/v1/loan/:id': 'LoanController.destroy',
   'POST /api/v1/loan/:id/start': 'LoanController.start',
   'POST /api/v1/loan/:id/end': 'LoanController.end',
-
-  'POST /api/v1/loan/:id/start': 'LoanController.start',
-  'POST /api/v1/loan/:id/end': 'LoanController.end',
+  'POST /api/v1/card/:cardIdentifier/loan/start': 'LoanController.start',
+  'POST /api/v1/card/:cardIdentifier/loan/end': 'LoanController.end',
+  'POST /api/v1/powerbank/:powerbankIdentifier/loan/end': 'LoanController.end',
 
   'GET /api/v1/powerbank': 'PowerbankController.index',
   'GET /api/v1/powerbank/:id': 'PowerbankController.show',

@@ -12,13 +12,35 @@ module.exports = {
       type: 'string',
       required: true
     },
-    address: {
+    street: {
+      type: 'string'
+    },
+    houseNumber: {
+      type: 'string'
+    },
+    postcode: {
+      type: 'string'
+    },
+    province: {
+      type: 'string'
+    },
+    city: {
+      type: 'string'
+    },
+    identifier: {
       type: 'string'
     },
     powerbanks: {
       collection: 'powerbank',
       via: 'store'
     }
+  },
+  beforeValidate: (values, cb) => {
+    if(values.hasOwnProperty('houseNumber')) {
+      values.houseNumber = String(values.houseNumber);
+    }
+
+    cb()
   }
 };
 
