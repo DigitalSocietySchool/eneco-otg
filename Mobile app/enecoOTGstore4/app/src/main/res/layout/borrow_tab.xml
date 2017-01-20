@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context="medialab.enecootgstore4.MainActivity">
+
+
+    <Button
+        android:text="Borrow"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBorrow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="Scanned Eneco OTG PowerBank"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/cbxBorrowPowerBank"
+        android:clickable="false"
+        android:textAlignment="textStart"
+        app:buttonTint="@color/colorAccent"
+        android:textColor="@color/text"
+
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/btnBorrow"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="Scanned Eneco OTG Card"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbxCard"
+        android:clickable="false"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+
+        app:buttonTint="@color/colorAccent"
+        android:textColor="@color/text"
+        android:checked="false"
+        android:layout_marginBottom="11dp"
+        android:layout_above="@+id/cbxBorrowPowerBank"
+        android:layout_alignStart="@+id/cbxBorrowPowerBank" />
+
+</RelativeLayout>
