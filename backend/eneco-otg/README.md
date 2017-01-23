@@ -11,43 +11,44 @@ To access the API you will need to include a header in an HTTP request called 'a
 
 The routes are as follows:
 
-GET /api/v1/store
-GET /api/v1/store/:id
-POST /api/v1/store
-PUT /api/v1/store/:id
-DELETE /api/v1/store/:id
+* GET /api/v1/store
+* GET /api/v1/store/:id
+* POST /api/v1/store
+* PUT /api/v1/store/:id
+* DELETE /api/v1/store/:id
  
-GET /api/v1/card
-GET /api/v1/card/:id
-POST /api/v1/card
-PUT /api/v1/card/:id
-DELETE /api/v1/card/:id
+* GET /api/v1/card
+* GET /api/v1/card/:id
+* POST /api/v1/card
+* PUT /api/v1/card/:id
+* DELETE /api/v1/card/:id
  
-GET /api/v1/client
-GET /api/v1/client/:id
-POST /api/v1/client
-PUT /api/v1/client/:id
-DELETE /api/v1/client/:id
+* GET /api/v1/client
+* GET /api/v1/client/:id
+* POST /api/v1/client
+* PUT /api/v1/client/:id
+* DELETE /api/v1/client/:id
  
-GET /api/v1/loan
-GET /api/v1/loan/:id
-POST /api/v1/loan
-PUT /api/v1/loan/:id
-DELETE /api/v1/loan/:id
-POST /api/v1/loan/:id/start
-POST /api/v1/loan/:id/end
-POST /api/v1/loan/:id/start
-POST /api/v1/loan/:id/end
+* GET /api/v1/loan
+* GET /api/v1/loan/:id
+* POST /api/v1/loan
+* PUT /api/v1/loan/:id
+* DELETE /api/v1/loan/:id
+* POST /api/v1/loan/:id/start
+* POST /api/v1/loan/:id/end
+* POST /api/v1/loan/:id/start
+* POST /api/v1/loan/:id/end
  
-GET /api/v1/powerbank
-GET /api/v1/powerbank/:id
-POST /api/v1/powerbank
-PUT /api/v1/powerbank/:id
-DELETE /api/v1/powerbank/:id
+* GET /api/v1/powerbank
+* GET /api/v1/powerbank/:id
+* POST /api/v1/powerbank
+* PUT /api/v1/powerbank/:id
+* DELETE /api/v1/powerbank/:id
 
-The schema for what input each Model takes is available at https://github.com/MediaLab-Amsterdam/eneco-otg/tree/master/api/models
+The schema for what input each Model takes is available at [model](https://github.com/MediaLab-Amsterdam/eneco-otg/tree/master/api/models)
 
-EXAMPLE:
+#EXAMPLE:
+```json
 Request: POST /api/v1/store (create a store)
 {
   "name": "Test Iain",
@@ -148,3 +149,4 @@ Response:
   "loanedAt": "2016-12-19T10:35:10.782Z",
   "id": "5857b7252d90aab804b47984"
 }
+```
